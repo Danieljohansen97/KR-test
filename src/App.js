@@ -12,6 +12,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Accordion from "react-bootstrap/Accordion";
+import Table from "react-bootstrap/Table";
 
 function App() {
   const baseUrl = "https://metadata.kreftregisteret.no/rest/v1/variables";
@@ -75,9 +77,11 @@ function App() {
           </Button>
         </Col>
       </Form.Group>
-      <Row>
-        {apiData &&
-          apiData.map((data, key) => <VariableList key={key} data={data} />)}
+      <Row className="mt-3">
+        <Accordion>
+          {apiData &&
+            apiData.map((data, key) => <VariableList key={key} data={data} />)}
+        </Accordion>
       </Row>
     </Container>
   );
