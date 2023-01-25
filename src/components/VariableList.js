@@ -1,17 +1,24 @@
 // React
 import React from "react";
 // Bootstrap
-import Accordion from "react-bootstrap/Accordion";
-import Table from "react-bootstrap/Table";
 
 const VariableList = (data) => {
   return (
-    <Accordion.Item eventKey={data.data.id}>
-      <Accordion.Header>
-        {data.data.name}
-      </Accordion.Header>
-      <Accordion.Body></Accordion.Body>
-    </Accordion.Item>
+    <>
+      {
+        // Console.log dataObject so that i can read values
+        console.log(data.data)
+      }
+      <tr>
+        <td>
+          <h6>{data.data.name}</h6>
+          <p>{data.data.description}</p>
+        </td>
+        <td>{data.data.validForExtraction === 1 ? "Ja" : "Nei"}</td>
+        <td>{data.data.approvedOn}</td>
+        <td>{data.data.techName}</td>
+      </tr>
+    </>
   );
 };
 
