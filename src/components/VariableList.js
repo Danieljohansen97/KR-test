@@ -1,9 +1,9 @@
 // React
 import React, { useState } from "react";
 // Bootstrap
-import Modal from 'react-bootstrap/Modal'
+
 // Components
-import DownloadSpreadsheet from "./DownloadSpreadsheet";
+import DetailModal from "./DetailModal";
 
 const VariableList = (data) => {
   const [show, setShow] = useState(false)
@@ -23,17 +23,7 @@ const VariableList = (data) => {
         <td>{data.data.techName}</td>
       </tr>
       {/* Modal to show extended information about the selected variable */}
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{data.data.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>{data.data.description}</p>
-        </Modal.Body>
-        <Modal.Footer>
-          <DownloadSpreadsheet jsonData={data} />
-        </Modal.Footer>
-      </Modal>
+      <DetailModal data={data} show={show} handleClose={handleClose} />
     </>
   );
 };
