@@ -128,7 +128,7 @@ function App() {
         </Col>
       </Form.Group>
       <Row className="mt-3" as={Container}>
-        <Table bordered size="sm">
+        <Table bordered size="sm" hover>
           <thead>
             <tr className="text-primary">
               <th onClick={() => handleSortByName()}>

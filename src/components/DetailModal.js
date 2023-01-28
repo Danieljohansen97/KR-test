@@ -5,6 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
+import Button from 'react-bootstrap/Button'
 // Components
 import DownloadSpreadsheet from "./DownloadSpreadsheet";
 
@@ -166,6 +167,7 @@ const DetailModal = ({ data, show, handleClose }) => {
         </Accordion>
       </Modal.Body>
       <Modal.Footer>
+        <Button onClick={handleClose} variant="danger">Tilbake</Button>
         <DownloadSpreadsheet jsonData={data} />
       </Modal.Footer>
     </Modal>
