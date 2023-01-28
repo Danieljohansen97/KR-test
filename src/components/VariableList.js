@@ -1,15 +1,19 @@
 // React
-import React from "react";
+import React, { useState } from "react";
 // Bootstrap
+import Modal from 'react-bootstrap/Modal'
+// Components
+import DownloadSpreadsheet from "./DownloadSpreadsheet";
 
 const VariableList = (data) => {
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
-      {
-        // Console.log dataObject so that i can read values
-        console.log(data.data)
-      }
-      <tr>
+      <tr onClick={handleShow}>
         <td>
           <h6>{data.data.name}</h6>
           <p>{data.data.description}</p>
@@ -18,6 +22,18 @@ const VariableList = (data) => {
         <td>{data.data.approvedOn}</td>
         <td>{data.data.techName}</td>
       </tr>
+      {/* Modal to show extended information about the selected variable */}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{data.data.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>{data.data.description}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <DownloadSpreadsheet jsonData={data} />
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
