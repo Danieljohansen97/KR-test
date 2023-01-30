@@ -1,13 +1,12 @@
 // React
-import React from "react";
+import React from "react"
 // Bootstrap
-import Modal from "react-bootstrap/Modal";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Accordion from "react-bootstrap/Accordion";
-import Button from 'react-bootstrap/Button'
-// Components
-import DownloadSpreadsheet from "./DownloadSpreadsheet";
+import Modal from "react-bootstrap/Modal"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
+import Accordion from "react-bootstrap/Accordion"
+import Button from "react-bootstrap/Button"
+import Container from "react-bootstrap/Container"
 
 const DetailModal = ({ data, show, handleClose }) => {
   return (
@@ -25,22 +24,31 @@ const DetailModal = ({ data, show, handleClose }) => {
           </Col>
         </Row>
         <Row>
-            <h4>Informasjon</h4>
-            <Col xs={12} md={6} lg={4} xl={3}>
-                <p>
-                    <b>Teknisk Navn: </b>
-                    {data.data.techName}
-                </p>
-            </Col>
-            <Col xs={12} md={6} lg={4} xl={3}>
-                <p><b>Opprettet av: </b>{`${data.data.createdBy}, ${data.data.createdOn}`}</p>
-            </Col>
-            <Col xs={12} md={6} lg={4} xl={3}>
-                <p><b>Oppdatert av: </b>{`${data.data.updatedBy}, ${data.data.updatedOn}`}</p>
-            </Col>
-            <Col xs={12} md={6} lg={4} xl={3}>
-                <p><b>Godkjent av: </b>{`${data.data.approvedBy}, ${data.data.approvedOn}`}</p>
-            </Col>
+          <h4>Informasjon</h4>
+          <Col xs={12} md={6} lg={4} xl={3}>
+            <p>
+              <b>Teknisk Navn: </b>
+              {data.data.techName}
+            </p>
+          </Col>
+          <Col xs={12} md={6} lg={4} xl={3}>
+            <p>
+              <b>Opprettet av: </b>
+              {`${data.data.createdBy}, ${data.data.createdOn}`}
+            </p>
+          </Col>
+          <Col xs={12} md={6} lg={4} xl={3}>
+            <p>
+              <b>Oppdatert av: </b>
+              {`${data.data.updatedBy}, ${data.data.updatedOn}`}
+            </p>
+          </Col>
+          <Col xs={12} md={6} lg={4} xl={3}>
+            <p>
+              <b>Godkjent av: </b>
+              {`${data.data.approvedBy}, ${data.data.approvedOn}`}
+            </p>
+          </Col>
         </Row>
         {/* Collapsible information for saving screen realestate */}
         <Accordion flush>
@@ -167,11 +175,16 @@ const DetailModal = ({ data, show, handleClose }) => {
         </Accordion>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleClose} variant="danger">Tilbake</Button>
-        <DownloadSpreadsheet jsonData={data} />
+        <Container fluid>
+          <div className="d-grid gap-2">
+            <Button onClick={handleClose} variant="danger" size="lg">
+              Tilbake
+            </Button>
+          </div>
+        </Container>
       </Modal.Footer>
     </Modal>
-  );
-};
+  )
+}
 
-export default DetailModal;
+export default DetailModal

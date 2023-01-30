@@ -43,8 +43,8 @@ const SearchForm = ({ setApiData, clearSorting }) => {
   }
 
   return (
-    <Form.Group as={Row}>
-      <Col xs={12} sm={8}>
+    <Form.Group as={Row} className="mt-5">
+      <Col xs={10} sm={8}>
         <Form.Control
           size="lg"
           type="text"
@@ -54,7 +54,7 @@ const SearchForm = ({ setApiData, clearSorting }) => {
           onChange={(e) => handleUpdateSearch(e.target.value)}
         />
       </Col>
-      <Col xs={12} sm={4}>
+      <Col xs={2} sm={4}>
         <Button
           size="lg"
           variant="primary"

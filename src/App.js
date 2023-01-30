@@ -5,6 +5,7 @@ import "./App.css"
 // Component imports
 import VariableList from "./components/VariableList"
 import SearchForm from "./components/SearchForm"
+import DownloadSpreadsheet from "./components/DownloadSpreadsheet"
 // Bootstrap imports
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -75,7 +76,10 @@ function App() {
     <Container fluid>
       <Header title="Kreftregisterets variabler" />
       <SearchForm setApiData={setApiData} clearSorting={clearSorting} />
-      <Row className="mt-3" as={Container}>
+
+      {apiData.length > 0 && <DownloadSpreadsheet jsonData={apiData} />}
+
+      <Row className="mt-5" as={Container}>
         <Table bordered size="sm" hover>
           <thead>
             <tr className="text-primary">
