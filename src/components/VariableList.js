@@ -1,15 +1,15 @@
 // React
-import React, { useState } from "react";
+import React, { useState } from "react"
 // Bootstrap
 
 // Components
-import DetailModal from "./DetailModal";
+import DetailModal from "./DetailModal"
 
 const VariableList = (data) => {
   const [show, setShow] = useState(false)
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   return (
     <>
@@ -25,7 +25,7 @@ const VariableList = (data) => {
       {/* Modal to show extended information about the selected variable */}
       <DetailModal data={data} show={show} handleClose={handleClose} />
     </>
-  );
-};
+  )
+}
 
-export default VariableList;
+export default VariableList
